@@ -1,0 +1,14 @@
+# k8s-manifests/food-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: food-service
+spec:
+  type: ClusterIP
+  selector:
+    app: food
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080

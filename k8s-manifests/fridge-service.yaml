@@ -1,0 +1,14 @@
+# k8s-manifests/food-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: fridge-service
+spec:
+  type: ClusterIP
+  selector:
+    app: fridge
+  ports:
+  - name: http
+    protocol: TCP
+    port: 50052
+    targetPort: 50052

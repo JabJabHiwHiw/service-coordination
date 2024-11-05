@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification
+  template:
+    metadata:
+      labels:
+        app: notification
+    spec:
+      containers:
+      - name: notification-container
+        image: your-notification-service-image
+        ports:
+        - containerPort: 8080
+        volumeMounts:
+        - name: env-file
+          mountPath: /app/.env
+          subPath: .env
+      volumes:
+      - name: env-file
+        configMap:
+          name: notification-service-env
+          items:
+            - key: .env
+              path: .env

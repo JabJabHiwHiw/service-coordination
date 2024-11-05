@@ -1,0 +1,12 @@
+# k8s-manifests/menu-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: menu-service
+spec:
+  selector:
+    app: menu
+  ports:
+  - protocol: TCP
+    port: 50051
+    targetPort: 50051
