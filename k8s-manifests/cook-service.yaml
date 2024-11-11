@@ -1,0 +1,14 @@
+# k8s-manifests/cook-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: cook-service
+spec:
+  type: ClusterIP
+  selector:
+    app: cook
+  ports:
+  - name: http
+    protocol: TCP
+    port: 80
+    targetPort: 8080

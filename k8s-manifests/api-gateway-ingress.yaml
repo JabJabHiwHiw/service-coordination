@@ -17,3 +17,17 @@ spec:
                 name: food-service
                 port:
                   number: 80
+          - path: /user
+            pathType: Prefix
+            backend:
+              service:
+                name: cook-service
+                port:
+                  number: 80
+          # - path: /notification
+          #   pathType: Prefix
+          #   backend:
+          #     service:
+          #       name: notification-service
+          #       port:
+          #         number: 8080

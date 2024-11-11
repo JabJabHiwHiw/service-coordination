@@ -1,21 +1,21 @@
-# k8s-manifests/menu-deployment.yaml
+# k8s-manifests/cook-deployment.yaml
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: menu-service
+  name: cook-service
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: menu
+      app: cook
   template:
     metadata:
       labels:
-        app: menu
+        app: cook
     spec:
       containers:
-      - name: menu
-        image: jayjacka/menu-service:latest
+      - name: cook
+        image: jayjacka/cook-service:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 50051
+        - containerPort: 80
